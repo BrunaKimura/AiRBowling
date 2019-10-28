@@ -70,7 +70,7 @@ public class BowlingBall : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Pin")
-            GetComponent<AudioSource>().Play();
+        if (collision.gameObject.tag == "pin")
+            Debug.Log("encostou");
     }
 }
