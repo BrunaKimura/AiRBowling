@@ -15,9 +15,22 @@ public class novoTeste : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
-        //if (collision.gameObject.tag == "pin")
-        Debug.Log("encostou");
+        if (collision.gameObject.tag == "pin")
+        {
+            Debug.Log("encostou");
+            collision.rigidbody.AddForce(transform.forward * 5);
+
+        }
+    } */
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.tag == "ball")
+        {
+            Debug.Log("encostou");
+            hit.rigidbody.AddForce(transform.forward * 5);
+
+        }
     }
 }
