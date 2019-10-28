@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class novoTeste : MonoBehaviour
 {
-    int speed = 50;
+  //  int speed = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +30,7 @@ public class novoTeste : MonoBehaviour
         if (hit.gameObject.tag == "ball")
         {
             Debug.Log("encostou");
-            hit.rigidbody.AddForce(transform.forward * speed);
+            hit.rigidbody.AddForce(transform.forward * 3000);
 
         }
     }
