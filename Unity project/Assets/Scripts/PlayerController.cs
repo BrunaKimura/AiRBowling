@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
     {
         if( collision.gameObject.CompareTag("ball") ){
             Debug.Log(collision.relativeVelocity);
-            collision.rigidbody.AddForce( collision.relativeVelocity * 1000 * -1);
+            collision.rigidbody.AddForce( collision.relativeVelocity * 10000 * -1);
         }
     }
 }
