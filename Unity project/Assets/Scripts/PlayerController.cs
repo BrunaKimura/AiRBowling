@@ -16,10 +16,26 @@ public class PlayerController : MonoBehaviour {
     {
         float moveHorizontal = Input.GetAxis ("Horizontal");
         float moveVertical = Input.GetAxis ("Vertical");
-        Debug.Log(moveHorizontal + ", " + moveVertical);
 
         Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 
         rb.AddForce (movement * speed);
+    }
+
+     void OnCollisionEnter(Collision collision)
+    {
+        
+        // Debug.Log(collision.collider.tag);
+        if( collision.gameObject.CompareTag("pin") ){
+            Debug.Log(collision.relativeVelocity);
+            collision.rigidbody.AddForce( collision.relativeVelocity * 100 * -1);
+        }
+        
+        // foreach (ContactPoint contact in collision.contacts)
+        // {
+        //     Debug.DrawRay(contact.point, contact.normal, Color.white);
+        // }
+        // if (collision.relativeVelocity.magnitude > 2)
+        //     audioSource.Play();
     }
 }
