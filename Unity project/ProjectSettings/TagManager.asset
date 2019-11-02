@@ -7,6 +7,7 @@ TagManager:
   - pin
   - ball
   - teste
+  - batedor
   layers:
   - Default
   - TransparentFX

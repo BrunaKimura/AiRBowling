@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
-  <Tracking>
-    <ImageTarget name="vuforia_tarmac" size="50.000000 35.165421" />
-    <ImageTarget name="vuforia_chips" size="50.000000 35.074627" />
-    <ImageTarget name="vuforia_stones" size="50.000000 35.000000" />
-  </Tracking>
+<QCARConfig>
+    <Tracking>
+        <ImageTarget name="vuforia_tarmac" size="50.000000 35.165421"/>
+        <ImageTarget name="vuforia_chips" size="50.000000 35.074627"/>
+        <ImageTarget name="vuforia_stones" size="50.000000 35.000000"/>
+        <ImageTarget name="lion.Right" size="0.400000 0.800000"/>
+        <ImageTarget name="lion.Back" size="0.600000 0.800000"/>
+        <ImageTarget name="lion.Front" size="0.600000 0.800000"/>
+        <ImageTarget name="lion.Left" size="0.400000 0.800000"/>
+        <ImageTarget name="lion.Top" size="0.600000 0.400000"/>
+        <ImageTarget name="lion.Bottom" size="0.600000 0.400000"/>
+        <MultiTarget name="lion">
+            <Part name="lion.Left" translation="-0.30000001192092896 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="lion.Right" translation="0.30000001192092896 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="lion.Front" translation="0 0 0.20000000298023224" rotation="AD: 1 0 0 0"/>
+            <Part name="lion.Back" translation="0 0 -0.20000000298023224" rotation="AD: 0 1 0 180"/>
+            <Part name="lion.Top" translation="0 0.4000000059604645 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="lion.Bottom" translation="0 -0.4000000059604645 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
+    </Tracking>
 </QCARConfig>
