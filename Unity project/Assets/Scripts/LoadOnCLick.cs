@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class LoadOnCLick : MonoBehaviour
 {
-    public void loadScene(int mode)
+    public GameObject loadingImage;
+
+    public void LoadScene(int level)
     {
-        Application.LoadLevel(mode);
+        loadingImage.SetActive(true);
+        Application.LoadLevel(level);
     }
 }
