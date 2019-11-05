@@ -37,7 +37,7 @@ public class WindDirection : MonoBehaviour
         }
     }
 
-    Vector3 getWind(){
+    public Vector3 getWind(){
         float radians = (float)wind_dir * (Mathf.PI / 180);
         Vector3 degreeVector = new Vector3(Mathf.Cos(radians)*(float)wind_dir, 0, Mathf.Sin(radians)*(float)wind_dir);
         return degreeVector;

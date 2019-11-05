@@ -6,7 +6,7 @@ public class BoxController : MonoBehaviour
 {
     public float mult;
     private Rigidbody rb;
-    public GameObject WindDirection;
+    public WindDirection wind;
 
     void Start ()
     {
@@ -21,6 +21,7 @@ public class BoxController : MonoBehaviour
             force.Normalize();
             Debug.Log(force * mult * -1);
             collision.rigidbody.AddForce( force * mult * -1);
+            Debug.Log("Wind: " + wind.getWind());
         }
     }
 }
