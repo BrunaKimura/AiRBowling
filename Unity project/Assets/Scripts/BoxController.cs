@@ -6,6 +6,7 @@ public class BoxController : MonoBehaviour
 {
     public float mult;
     private Rigidbody rb;
+    public GameObject WindDirection;
 
     void Start ()
     {
@@ -23,3 +24,7 @@ public class BoxController : MonoBehaviour
         }
     }
 }
+
+
+
+

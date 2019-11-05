@@ -9,6 +9,7 @@ Confidential and Proprietary - Protected under copyright and other laws.
 using UnityEngine;
 using Vuforia;
 
+
 /// <summary>
 /// A custom handler that implements the ITrackableEventHandler interface.
 ///
