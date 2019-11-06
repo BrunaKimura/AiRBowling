@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "970984240443",
+    "firebase_url": "https://air-bowling.firebaseio.com",
+    "project_id": "air-bowling",
+    "storage_bucket": "air-bowling.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970984240443:android:91aae926565c215bacf31e",
+        "android_client_info": {
+          "package_name": "com.AiRBowling.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "970984240443-14qlps71tohdid0e66ppum3r76v029hv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5z-07Quix4gCxR1-Vxz9sAyHPmGP5qvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "970984240443-14qlps71tohdid0e66ppum3r76v029hv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

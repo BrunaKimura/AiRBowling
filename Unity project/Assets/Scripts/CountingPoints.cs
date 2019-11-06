@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using Firebase;
+using Firebase.Database;
+using Firebase.Unity.Editor;
 
 public class CountingPoints : MonoBehaviour
 {
@@ -23,12 +26,27 @@ public class CountingPoints : MonoBehaviour
     Quaternion defaultRotBall;
     Transform modelBall;
 
+    DataSnapshot snapshot;
+    DatabaseReference reference;
     
     void Start()
     {
+        FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://air-bowling.firebaseio.com/");
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
         TotalPoints = 0;
         turns = 1;
         isBackedUp = false;
+        FirebaseDatabase.DefaultInstance.GetReference("highest").GetValueAsync().ContinueWith(task => {
+        if (task.IsFaulted) 
+        {
+            // Handle the error...
+        }
+        else if (task.IsCompleted){
+            snapshot = task.Result;
+        } 
+        });
+        
+
     }
     // FixedUpdate message for physics calculations.
     void Update()
@@ -82,7 +100,7 @@ public class CountingPoints : MonoBehaviour
         //Restore the all the original pos, scale and rot  of each GameOBject
         for (int i = 0; i < modelsPins.Length; i++)
         {
-            if( Vector3.Distance(modelsPins[i].position, defaultPosPins[i]) > 0.001 )
+            if( Vector3.Distance(modelsPins[i].position, defaultPosPins[i]) > 0.01 )
             {
                 // Debug.Log(i + ": " + Vector3.Distance(modelsPins[i].position, defaultPosPins[i]));
                 total ++;
@@ -106,7 +124,8 @@ public class CountingPoints : MonoBehaviour
     void Reset(){
         int currentPoints = resetTransform();
         TotalPoints += currentPoints;
-        turns--;
+        if(turns > 0)
+            turns--;
         GameObject turnPoints = this.transform.GetChild(0).gameObject;
         GameObject totalPoints = this.transform.GetChild(1).gameObject;
         GameObject turnsLeft = this.transform.GetChild(2).gameObject;
@@ -132,9 +151,17 @@ public class CountingPoints : MonoBehaviour
         turnPoints.SetActive(false);
         if(turns == 0){
             Points.final = TotalPoints;
+            Points.highest = int.Parse(snapshot.GetValue(false).ToString());    
+            if(TotalPoints > Points.highest)
+            {
+                Points.highest = TotalPoints;
+                // SetValue in Database
+                // FirebaseDatabase.DefaultInstance.GetReference("highest").SetValueAsync(TotalPoints);
+                reference.Child("highest").SetValueAsync(TotalPoints);
+
+            }
             Application.LoadLevel(3);
         }
         //Check if game is over
-
     }
 }

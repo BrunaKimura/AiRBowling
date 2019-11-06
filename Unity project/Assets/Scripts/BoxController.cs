@@ -15,6 +15,7 @@ public class BoxController : MonoBehaviour
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
+        wind.getWind();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -25,10 +26,12 @@ public class BoxController : MonoBehaviour
                 var force = transform.position - collision.gameObject.transform.position;
                 force.Normalize();
                 if(toggle.GetComponent<Toggle>().isOn){
+                    Debug.Log("Hitting with wind");
                     collision.rigidbody.AddForce( (force+wind.getWind()) * mult * -1 );
                     Debug.Log((force+wind.getWind()) * mult * -1 );
                 }
                 else{
+                    Debug.Log("Hitting with no wind");
                     collision.rigidbody.AddForce( force*mult*-1 );
                 }
                 // Vector3 result = (force + wind.getWind()) * mult * -1;
@@ -42,7 +45,7 @@ public class BoxController : MonoBehaviour
     {
         //Wait for 10 seconds
         Debug.Log("Beginning sleep");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(8);
         TurnFinished = true;
         hasCollide = true;
         Debug.Log("Stopping sleep");
