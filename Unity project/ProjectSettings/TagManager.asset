@@ -9,6 +9,7 @@ TagManager:
   - teste
   - batedor
   - canaleta
+  - PointsTurn
   layers:
   - Default
   - TransparentFX

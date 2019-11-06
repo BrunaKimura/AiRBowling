@@ -736,10 +736,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: d5f1065c-5fd0-4e91-879e-d1562ecabb30
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: AiRBowling
+  organizationId: unity_hyjql8i86ltlra
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

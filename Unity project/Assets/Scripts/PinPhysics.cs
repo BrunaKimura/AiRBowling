@@ -15,19 +15,19 @@ public class PinPhysics : MonoBehaviour
         distToGround = GetComponent<Collider>().bounds.extents.y;
     }
 
-    bool IsGrounded(){
+    public bool IsGrounded(){
         return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
     }
 
-    void FixedUpdate(){
-        if(!rb.isKinematic){
-            if (!IsGrounded())
-            {
-                fell = true;
-            }
-        }
-    }
-    bool isFallen(){
-        return fell;
-    }
+    // void FixedUpdate(){
+    //     if(!rb.isKinematic){
+    //         if (!IsGrounded())
+    //         {
+    //             fell = true;
+    //         }
+    //     }
+    // }
+    // public bool isFallen(){
+    //     return fell;
+    // }
 }
