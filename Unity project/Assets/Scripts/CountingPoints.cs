@@ -41,8 +41,8 @@ public class CountingPoints : MonoBehaviour
         else
         {
             if(!isBackedUp)
-                isBackedUp = true;
                 backUpTransform();
+                isBackedUp = true;
         }
     }
 
