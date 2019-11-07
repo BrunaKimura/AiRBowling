@@ -34,7 +34,7 @@ public class CountingPoints : MonoBehaviour
         FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://air-bowling.firebaseio.com/");
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         TotalPoints = 0;
-        turns = 1;
+        turns = 2;
         isBackedUp = false;
         FirebaseDatabase.DefaultInstance.GetReference("highest").GetValueAsync().ContinueWith(task => {
         if (task.IsFaulted) 
@@ -45,6 +45,8 @@ public class CountingPoints : MonoBehaviour
             snapshot = task.Result;
         } 
         });
+        GameObject turnsLeft = this.transform.GetChild(2).gameObject;
+        turnsLeft.GetComponent<UnityEngine.UI.Text>().text = "Turns Left: " + turns.ToString();
         
 
     }
@@ -102,7 +104,6 @@ public class CountingPoints : MonoBehaviour
         {
             if( Vector3.Distance(modelsPins[i].position, defaultPosPins[i]) > 0.01 )
             {
-                // Debug.Log(i + ": " + Vector3.Distance(modelsPins[i].position, defaultPosPins[i]));
                 total ++;
             }
 
@@ -147,7 +148,7 @@ public class CountingPoints : MonoBehaviour
 
     IEnumerator waiter(GameObject turnPoints)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         turnPoints.SetActive(false);
         if(turns == 0){
             Points.final = TotalPoints;
@@ -155,13 +156,9 @@ public class CountingPoints : MonoBehaviour
             if(TotalPoints > Points.highest)
             {
                 Points.highest = TotalPoints;
-                // SetValue in Database
-                // FirebaseDatabase.DefaultInstance.GetReference("highest").SetValueAsync(TotalPoints);
                 reference.Child("highest").SetValueAsync(TotalPoints);
-
             }
             Application.LoadLevel(3);
         }
-        //Check if game is over
     }
 }

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources tools:keep="@string/firebase_database_url,@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id" xmlns:tools="http://schemas.android.com/tools">
+  <string name="firebase_database_url" translatable="false">https://air-bowling.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">970984240443</string>
+  <string name="google_storage_bucket" translatable="false">air-bowling.appspot.com</string>
+  <string name="project_id" translatable="false">air-bowling</string>
+  <string name="google_api_key" translatable="false">AIzaSyD5z-07Quix4gCxR1-Vxz9sAyHPmGP5qvw</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyD5z-07Quix4gCxR1-Vxz9sAyHPmGP5qvw</string>
+  <string name="google_app_id" translatable="false">1:970984240443:android:91aae926565c215bacf31e</string>
+  <string name="default_web_client_id" translatable="false">970984240443-14qlps71tohdid0e66ppum3r76v029hv.apps.googleusercontent.com</string>
+</resources>
